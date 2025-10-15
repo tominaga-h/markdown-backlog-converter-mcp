@@ -1,0 +1,33 @@
+{
+  "name": "markdown-backlog-converter-mcp",
+  "version": "0.1.0",
+  "description": "An MCP server that converts Markdown into Backlog notation using the md2bg library when available.",
+  "main": "dist/server.js",
+  "types": "dist/server.d.ts",
+  "bin": {
+    "markdown-backlog-converter-mcp": "dist/server.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "npm run build && node dist/server.js",
+    "prepare": "npm run build",
+    "build:test": "tsc -p tsconfig.test.json",
+    "test": "npm run build && npm run build:test && node dist-tests/converter.test.js"
+  },
+  "keywords": [
+    "mcp",
+    "markdown",
+    "backlog",
+    "converter"
+  ],
+  "author": "",
+  "license": "MIT",
+  "type": "commonjs",
+  "dependencies": {
+    "md2bg": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.30",
+    "typescript": "^5.4.5"
+  }
+}
