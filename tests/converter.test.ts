@@ -39,7 +39,7 @@ test("convertMarkdownToBacklog は md2bg が読み込めない場合にフォー
 
   assert.match(
     converted,
-    /^The md2bg library could not be loaded. Fallback conversion is being used.\s+Reason:/
+    /^md2bg ライブラリを読み込めなかったため、フォールバックの変換処理を利用します。\s+理由:/
   );
   assert.ok(converted.includes("[h1] 見出し"));
 });

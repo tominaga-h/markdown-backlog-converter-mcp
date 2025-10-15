@@ -55,13 +55,13 @@ const tools: Record<string, ToolDefinition> = {
   "markdown-to-backlog": {
     name: "markdown-to-backlog",
     description:
-      "Convert Markdown formatted text into Backlog wiki notation using the md2bg library when available.",
+      "利用可能であれば md2bg ライブラリを使って Markdown を Backlog のWiki記法に変換します。",
     input_schema: {
       type: "object",
       properties: {
         markdown: {
           type: "string",
-          description: "Markdown text that should be converted into Backlog notation.",
+          description: "Backlog 記法に変換したい Markdown テキスト。",
         },
       },
       required: ["markdown"],
@@ -82,7 +82,7 @@ async function handleToolCall(params: JsonRpcParams, id: JsonRpcId): Promise<voi
       id,
       error: {
         code: -32602,
-        message: `Unknown tool: ${String(name)}`,
+        message: `不明なツールです: ${String(name)}`,
       },
     });
     return;
@@ -111,7 +111,7 @@ async function handleToolCall(params: JsonRpcParams, id: JsonRpcId): Promise<voi
       id,
       error: {
         code: -32001,
-        message: "Markdown to Backlog conversion failed.",
+        message: "Markdown から Backlog への変換に失敗しました。",
         data: {
           message,
         },
@@ -135,7 +135,7 @@ function handleMessage(line: string): void {
       id: null,
       error: {
         code: -32700,
-        message: "Failed to parse JSON input.",
+        message: "JSON の解析に失敗しました。",
         data: {
           input: line,
           message: parseMessage,
@@ -153,7 +153,7 @@ function handleMessage(line: string): void {
       id,
       error: {
         code: -32600,
-        message: "Invalid request: method must be a string.",
+        message: "無効なリクエストです: method は文字列である必要があります。",
       },
     });
     return;
@@ -216,7 +216,7 @@ function handleMessage(line: string): void {
           id,
           error: {
             code: -32601,
-            message: `Unsupported method: ${method}`,
+            message: `未対応のメソッドです: ${method}`,
           },
         });
       }

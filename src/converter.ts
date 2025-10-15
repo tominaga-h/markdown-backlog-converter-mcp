@@ -93,7 +93,7 @@ export function convertMarkdownToBacklog(markdown: string): string {
   }
 
   const messageParts = [
-    "The md2bg library could not be loaded. Fallback conversion is being used.",
+    "md2bg ライブラリを読み込めなかったため、フォールバックの変換処理を利用します。",
   ];
 
   if (libraryLoadError) {
@@ -101,7 +101,7 @@ export function convertMarkdownToBacklog(markdown: string): string {
       libraryLoadError instanceof Error
         ? libraryLoadError.message
         : String(libraryLoadError);
-    messageParts.push(`Reason: ${reason}`);
+    messageParts.push(`理由: ${reason}`);
   }
 
   return `${messageParts.join(" \n")}\n\n${fallbackConverter(markdown)}`;
