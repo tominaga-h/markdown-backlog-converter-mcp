@@ -24,6 +24,7 @@
   "license": "MIT",
   "type": "commonjs",
   "dependencies": {
+    "@modelcontextprotocol/sdk": "^0.1.1",
     "md2bg": "^1.0.0"
   },
   "devDependencies": {
