@@ -30,8 +30,9 @@ test('markdown_to_backlog converts heading markup', async () => {
 
 test('markdown_to_backlog converts complex markdown sample', async () => {
   const tool = getMarkdownToBacklogTool();
-  const markdownPath = path.join(__dirname, '..', 'test.md');
-  const backlogPath = path.join(__dirname, '..', 'test_backlog.txt');
+  const fixturesDir = path.join(__dirname, 'fixtures');
+  const markdownPath = path.join(fixturesDir, 'sample.md');
+  const backlogPath = path.join(fixturesDir, 'sample.backlog.txt');
 
   const [markdown, expectedBacklog] = await Promise.all([
     fs.readFile(markdownPath, 'utf-8'),
@@ -41,4 +42,3 @@ test('markdown_to_backlog converts complex markdown sample', async () => {
   const result = await tool.callback({ markdown }, {});
   assert.equal(result.structuredContent.backlog.trim(), expectedBacklog.trim());
 });
-
