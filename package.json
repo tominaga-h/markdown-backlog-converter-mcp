@@ -21,6 +21,14 @@
   ],
   "author": "",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tominaga-h/markdown-backlog-converter-mcp.git"
+  },
+  "homepage": "https://github.com/tominaga-h/markdown-backlog-converter-mcp",
+  "bugs": {
+    "url": "https://github.com/tominaga-h/markdown-backlog-converter-mcp/issues"
+  },
   "type": "commonjs",
   "dependencies": {
     "@modelcontextprotocol/sdk": "1.20.0",
