@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { fallbackConverter, convertMarkdownToBacklog } from "../dist/converter";
+import { fallbackConverter, convertMarkdownToBacklog } from "../dist/converter.js";
 
 interface TestCase {
   name: string;

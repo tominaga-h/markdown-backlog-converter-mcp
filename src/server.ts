@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
-import { Server } from "@modelcontextprotocol/sdk/server";
-import { StdioServerTransport } from "@modelcontextprotocol/sdk/transports/stdio";
+import { Server } from "@modelcontextprotocol/sdk/server.js";
+import { StdioServerTransport } from "@modelcontextprotocol/sdk/transports/stdio.js";
 
-import { convertMarkdownToBacklog } from "./converter";
+import { convertMarkdownToBacklog } from "./converter.js";
 
 const serverInfo = {
   name: "markdown-backlog-converter-mcp",

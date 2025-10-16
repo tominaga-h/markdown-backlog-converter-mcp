@@ -1,3 +1,7 @@
+import { createRequire } from "node:module";
+
+const require = createRequire(import.meta.url);
+
 let libraryConverter: ((markdown: string) => string) | undefined;
 let libraryLoadError: unknown;
 

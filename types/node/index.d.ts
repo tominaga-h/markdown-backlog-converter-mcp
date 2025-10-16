@@ -19,6 +19,13 @@ declare const process: {
 
 declare function require(id: string): any;
 
+type NodeRequire = (id: string) => any;
+
+declare module "node:module" {
+  function createRequire(url: string): NodeRequire;
+  export { createRequire };
+}
+
 declare module "node:readline" {
   interface ReadLine {
     on(event: "line", listener: (input: string) => void): this;

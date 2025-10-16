@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
     "target": "ES2020",
-    "module": "CommonJS",
-    "moduleResolution": "Node",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
     "baseUrl": ".",
     "rootDir": "tests",
     "outDir": "dist-tests",
@@ -12,7 +12,12 @@
     "skipLibCheck": true,
     "typeRoots": ["./types"],
     "paths": {
-      "@modelcontextprotocol/sdk/*": ["types/modelcontextprotocol__sdk/*"]
+      "@modelcontextprotocol/sdk/server.js": [
+        "types/modelcontextprotocol__sdk/server.d.ts"
+      ],
+      "@modelcontextprotocol/sdk/transports/stdio.js": [
+        "types/modelcontextprotocol__sdk/transports/stdio.d.ts"
+      ]
     }
   },
   "include": ["tests/**/*.ts"]
