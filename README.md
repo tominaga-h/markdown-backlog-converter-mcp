@@ -1,5 +1,8 @@
 # Markdown Backlog Converter MCP
+
 [日本語のREADMEはこちら](README.ja.md)
+
+[![npm version](https://img.shields.io/npm/v/markdown-backlog-converter-mcp.svg)](https://www.npmjs.com/package/markdown-backlog-converter-mcp)
 
 This project provides a Model Context Protocol (MCP) server that converts Markdown into Backlog wiki notation. It exposes a single tool, `markdown_to_backlog`, which can be accessed from MCP-compatible clients such as Cursor, Claude Code, or the MCP Inspector.
 
@@ -13,7 +16,7 @@ This project provides a Model Context Protocol (MCP) server that converts Markdo
 npm install -g markdown-backlog-converter-mcp
 ```
 
-Or run via `npx` without a global install:
+Or run via `npx` without a global install (see [the npm package page](https://www.npmjs.com/package/markdown-backlog-converter-mcp)):
 ```bash
 npx markdown-backlog-converter-mcp
 ```
