@@ -1,7 +1,7 @@
 {
   "name": "markdown-backlog-converter-mcp",
-  "version": "0.1.0",
-  "description": "md2bg ライブラリが利用可能であれば Markdown を Backlog 記法へ変換する MCP サーバーです。",
+  "version": "1.0.0",
+  "description": "Markdown を Backlog 記法へ変換する MCP サーバー",
   "main": "dist/server.js",
   "types": "dist/server.d.ts",
   "bin": {
