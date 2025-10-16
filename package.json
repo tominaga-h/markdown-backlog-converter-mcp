@@ -1,0 +1,38 @@
+{
+  "name": "markdown-backlog-converter-mcp",
+  "version": "0.1.0",
+  "description": "md2bg ライブラリが利用可能であれば Markdown を Backlog 記法へ変換する MCP サーバーです。",
+  "main": "dist/server.js",
+  "types": "dist/server.d.ts",
+  "bin": {
+    "markdown-backlog-converter-mcp": "dist/server.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "prepare": "npm run build",
+    "test": "tsx --test tests/**/*.test.ts"
+  },
+  "keywords": [
+    "mcp",
+    "markdown",
+    "backlog",
+    "converter"
+  ],
+  "author": "",
+  "license": "MIT",
+  "type": "commonjs",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.20.0",
+    "md2bg": "0.6.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.30",
+    "tsx": "^4.7.1",
+    "typescript": "^5.4.5"
+  },
+  "files": [
+    "dist/"
+  ]
+}
