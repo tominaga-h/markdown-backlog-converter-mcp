@@ -17,6 +17,48 @@ npm install -g markdown-backlog-converter-mcp
 npx markdown-backlog-converter-mcp
 ```
 
+## MCP 設定例
+`mcp.json`（Cursor や Claude Code の設定）に以下のいずれかの記述を追加してください。
+
+### ローカルビルドを利用する場合
+ローカルでビルドしたサーバーを使う場合は、以下の手順で準備してください（パスは適宜読み替えてください）。
+
+1. リポジトリをクローンして移動します。
+
+```bash
+git clone git@github.com:tominaga-h/markdown-backlog-converter-mcp.git
+cd markdown-backlog-converter-mcp
+```
+
+2. 依存関係をインストールし、ビルドします。
+
+```bash
+npm install
+npm run build
+```
+
+3. ビルドした `dist/server.js` を指すように `mcp.json` を設定します。
+
+```json
+{
+  "markdown-to-backlog": {
+    "command": "node",
+    "args": ["/<リポジトリへのパス>/markdown-backlog-converter-mcp/dist/server.js"]
+  }
+}
+```
+
+### npx を利用する場合
+
+```json
+{
+  "markdown-to-backlog": {
+    "command": "npx",
+    "args": ["markdown-backlog-converter-mcp"]
+  }
+}
+```
+
 ## 使い方
 インストール後、MCP 対応クライアントに `markdown-backlog-converter-mcp`（stdio コマンド）を登録してください。サーバーは次のツールを提供します。
 
@@ -37,4 +79,3 @@ npm test
 
 ## ライセンス
 MIT
-

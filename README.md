@@ -18,6 +18,48 @@ Or run via `npx` without a global install:
 npx markdown-backlog-converter-mcp
 ```
 
+## MCP Configuration Examples
+Add the server to your `mcp.json` (or Cursor/Claude configuration) using one of the following recipes.
+
+### Local build
+If you prefer running your own build, set things up like so (replace the paths with your environment):
+
+1. Clone and enter the repository:
+
+```bash
+git clone git@github.com:tominaga-h/markdown-backlog-converter-mcp.git
+cd markdown-backlog-converter-mcp
+```
+
+2. Install dependencies and build the server:
+
+```bash
+npm install
+npm run build
+```
+
+3. Register the built server in `mcp.json`:
+
+```json
+{
+  "markdown-to-backlog": {
+    "command": "node",
+    "args": ["/<path to repo>/markdown-backlog-converter-mcp/dist/server.js"]
+  }
+}
+```
+
+### Via npx
+
+```json
+{
+  "markdown-to-backlog": {
+    "command": "npx",
+    "args": ["markdown-backlog-converter-mcp"]
+  }
+}
+```
+
 ## Usage
 After installation, configure your MCP-compatible client with the stdio command `markdown-backlog-converter-mcp`. The server registers a single tool:
 
