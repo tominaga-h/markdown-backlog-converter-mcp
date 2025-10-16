@@ -11,6 +11,8 @@ declare namespace NodeJS {
 declare const process: {
   stdin: NodeJS.ReadableStream;
   stdout: NodeJS.WritableStream;
+  argv: string[];
+  env: Record<string, string | undefined>;
   exitCode?: number;
   exit(code?: number): never;
 };

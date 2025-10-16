@@ -57,7 +57,9 @@ npm start
 node dist/server.js
 ```
 
-サーバーは Model Context Protocol に従って STDIO 経由で通信します。`initialize` 呼び出しの後、`tools/call` を使って次のペイロード
+サーバーは Model Context Protocol に従って STDIO 経由で通信します。起動時に `--port` オプション（または `MCP_SERVER_PORT` / `PORT`
+環境変数）を指定すると、そのポート番号が標準エラー出力に表示されます。指定しない場合は標準入出力で待機している旨を表示します。
+`initialize` 呼び出しの後、`tools/call` を使って次のペイロード
 で `markdown-to-backlog` ツールを利用できます。
 
 ```json

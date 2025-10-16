@@ -51,6 +51,63 @@ const serverInfo = {
   version: "0.1.0",
 } as const;
 
+function parsePort(value: string | undefined): number | undefined {
+  if (!value) {
+    return undefined;
+  }
+
+  const trimmed = value.trim();
+  if (!trimmed) {
+    return undefined;
+  }
+
+  const parsed = Number.parseInt(trimmed, 10);
+  if (!Number.isNaN(parsed) && parsed >= 0 && parsed <= 65535) {
+    return parsed;
+  }
+
+  return undefined;
+}
+
+function detectListenPort(): number | undefined {
+  const args = process.argv.slice(2);
+  const argPort = args
+    .map((arg: string, index: number, all: string[]) => {
+      if (arg === "--port" || arg === "-p") {
+        return all[index + 1];
+      }
+
+      const match = arg.match(/^--port=(.+)$/);
+      if (match) {
+        return match[1];
+      }
+
+      const shortMatch = arg.match(/^-p(.+)$/);
+      if (shortMatch) {
+        return shortMatch[1];
+      }
+
+      return undefined;
+    })
+    .find((candidate): candidate is string => typeof candidate === "string");
+
+  const port =
+    parsePort(argPort) ??
+    parsePort(process.env.MCP_SERVER_PORT) ??
+    parsePort(process.env.MCP_PORT) ??
+    parsePort(process.env.PORT);
+
+  return port;
+}
+
+const configuredPort = detectListenPort();
+
+if (configuredPort !== undefined) {
+  console.error(`MCP サーバーをポート ${configuredPort} で待機します。`);
+} else {
+  console.error("MCP サーバーは標準入力/標準出力で待機します。");
+}
+
 const tools: Record<string, ToolDefinition> = {
   "markdown-to-backlog": {
     name: "markdown-to-backlog",
